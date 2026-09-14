@@ -1,0 +1,24 @@
+{
+  "name": "learning-authentication",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo testing"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.4.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.4.1",
+  "type": "module",
+  "dependencies": {
+    "ejs": "6.0.1",
+    "express": "5.2.1",
+    "express-session": "1.19.0",
+    "passport": "0.7.0",
+    "passport-local": "1.0.0",
+    "pg": "8.23.0"
+  }
+}
