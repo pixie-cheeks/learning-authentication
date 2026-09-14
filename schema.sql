@@ -1,0 +1,5 @@
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  username TEXT,
+  password TEXT
+);
