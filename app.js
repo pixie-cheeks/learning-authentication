@@ -18,6 +18,7 @@ app.use(session({ secret: 'cats', resave: false, saveUninitialized: false }));
 app.use(passport.session());
 app.use(urlencoded({ extended: false }));
 
+app.get('/sign-up', (_req, res) => res.render('sign-up-form'));
 app.get('/', (_req, res) => res.render('index'));
 
 app.listen(3000, (error) => {
