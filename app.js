@@ -57,6 +57,11 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 app.post(
   '/log-in',
   passport.authenticate('local', {
@@ -73,8 +78,16 @@ app.post('/sign-up', async (req, res) => {
   res.redirect('/');
 });
 
+app.get('/log-out', (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
 app.get('/sign-up', (_req, res) => res.render('sign-up-form'));
-app.get('/', (req, res) => res.render('index', { user: req.user }));
+app.get('/', (_req, res) => res.render('index'));
 
 app.listen(3000, (error) => {
   if (error) {
