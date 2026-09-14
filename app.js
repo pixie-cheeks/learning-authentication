@@ -74,7 +74,7 @@ app.post('/sign-up', async (req, res) => {
 });
 
 app.get('/sign-up', (_req, res) => res.render('sign-up-form'));
-app.get('/', (_req, res) => res.render('index'));
+app.get('/', (req, res) => res.render('index', { user: req.user }));
 
 app.listen(3000, (error) => {
   if (error) {
