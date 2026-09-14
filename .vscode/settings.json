@@ -1,0 +1,14 @@
+{
+  "shellcheck.ignorePatterns": {
+    ".env.example": true
+  },
+  "files.associations": {
+    "*.ejs": "html"
+  },
+  "htmlhint.options": {
+    "spec-char-escape": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "besthyhy.ejs-eta-beautify"
+  }
+}
