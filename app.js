@@ -57,6 +57,14 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
+app.post(
+  '/log-in',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/',
+    failureMessage: true,
+  }),
+);
 app.post('/sign-up', async (req, res) => {
   await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [
     req.body.username,
