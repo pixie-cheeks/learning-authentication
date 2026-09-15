@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { join } from 'node:path';
+import path from 'node:path';
 import { Pool } from 'pg';
 import bcrypt from 'bcryptjs';
 import express, { urlencoded } from 'express';
@@ -12,7 +12,7 @@ const pool = new Pool({
 });
 
 const app = express();
-app.set('views', join(import.meta.dirname, 'views'));
+app.set('views', path.join(import.meta.dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: false }));
