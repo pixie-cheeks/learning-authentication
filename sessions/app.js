@@ -1,9 +1,11 @@
-import 'dotenv/config';
+import { configDotenv } from 'dotenv';
+import path from 'node:path';
 import { Pool } from 'pg';
 import express from 'express';
 import session from 'express-session';
 import connectPG from 'connect-pg-simple';
 
+configDotenv({ path: path.resolve(import.meta.dirname, '../.env') });
 const PGStore = connectPG(session);
 
 const pool = new Pool({
