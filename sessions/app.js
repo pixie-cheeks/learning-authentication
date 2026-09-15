@@ -35,8 +35,15 @@ app.use(
   }),
 );
 
-app.get('/', (_req, res) => {
-  res.send(/* HTML */ `<h1>HELLOO</h1>`);
+app.get('/', (req, res) => {
+  req.session.viewCount = req.session.viewCount ? req.session.viewCount + 1 : 1;
+  const { viewCount } = req.session;
+  res.send(
+    /* HTML */ `<h1>
+      Konnichiwa!! You have been here ${viewCount}
+      time${viewCount !== 1 ? 's' : ''}!
+    </h1>`,
+  );
 });
 
 app.listen(3000);
