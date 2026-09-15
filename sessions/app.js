@@ -2,7 +2,9 @@ import 'dotenv/config';
 import { Pool } from 'pg';
 import express from 'express';
 import session from 'express-session';
-import { PGStore } from 'connect-pg-simple';
+import connectPG from 'connect-pg-simple';
+
+const PGStore = connectPG(session);
 
 const pool = new Pool({
   connectionString: process.env.CONNECTION_STRING,
